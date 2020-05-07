@@ -37,7 +37,7 @@
 <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="name">First name</label>
-                <input type="text" class="form-control" th:field="*{name}" id="name" value="${user.name}" required>
+                <input type="text" class="form-control" th:field="*{name}" id="name" value="${user.name}" >
                 <div style="margin-top: 10px" class="alert alert-danger"
 							role="alert" th:if="${#fields.hasErrors('name')}"
 							th:errors="*{name}"></div>
@@ -46,7 +46,7 @@
               <br>
               <div class="col-md-4 mb-3">
                 <label for="surname">Last name</label>
-                <input type="text" class="form-control" th:field="*{surname}"  id="surname" value="${user.surname}" required>
+                <input type="text" class="form-control" th:field="*{surname}"  id="surname" value="${user.surname}" >
                 <div style="margin-top: 10px" class="alert alert-danger"
 							role="alert" th:if="${#fields.hasErrors('surname')}"
 							th:errors="*{surname}"></div>
@@ -56,7 +56,7 @@
               <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" th:field="*{email}" id="email" value="${user.email}" required>
+                <input type="text" class="form-control" th:field="*{email}" id="email" value="${user.email}" >
                 <div style="margin-top: 10px" class="alert alert-danger"
 							role="alert" th:if="${#fields.hasErrors('email')}"
 							th:errors="*{email}"></div>
@@ -66,7 +66,7 @@
             
               <div class="col-md-4 mb-3">
                 <label for="mobileno">Mobile No</label>
-                <input type="text" class="form-control" th:field="*{mobileno}" id="mobileno" value="${user.mobileno}" required>
+                <input type="text" class="form-control" th:field="*{mobileno}" id="mobileno" value="${user.mobileno}" placeholder="(xxx-xxxxxx)">
                 <div style="margin-top: 10px" class="alert alert-danger"
 							role="alert" th:if="${#fields.hasErrors('mobileno')}"
 							th:errors="*{mobileno}"></div>
@@ -74,7 +74,7 @@
             </div>
               <div class="col-md-3 mb-3">
                 <label for="gender">Gender</label>
-                <select class="custom-select" id="gender" th:field="*{gender}"  required>
+                <select class="custom-select" id="gender" th:field="*{gender}"  >
                   <option selected disabled value=""></option>
                   <option th:field="*{gender}" value="male" >Male</option>
                   <option th:field="*{gender}" value="female">Female</option>
@@ -86,23 +86,13 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="dateofbirth">Date of Birth</label>
-                <input type="date" class="form-control" th:field="*{dateofbirth}" id="dateofbirth" required>
+                <input type="date" class="form-control" th:field="*{dateofbirth}" id="dateofbirth" >
                 <div style="margin-top: 10px" class="alert alert-danger"
 							role="alert" th:if="${#fields.hasErrors('dateofbirth')}"
 							th:errors="*{dateofbirth}"></div>
               </div>
             
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                  Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
-              </div>
-            </div>
+            
             <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;;
@@ -17,22 +17,22 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@NotNull
+	@NotBlank(message="Pls Enter Your First Name")
 	
 	@Size(min = 4, max=15)
 	private String name;
 	
-	@NotNull
+	@NotBlank(message="Pls Enter Your Last Name")
 	
 	private String surname;
 	
-	
+	@NotBlank(message="Pls Enter Your Mobile No")
 	private String mobileno;
 	
-	
+	@NotBlank(message="Pls Enter Gender")
 	private String gender;
 	
-	
+	@NotBlank(message="Pls Enter DOB")
 	private String dateofbirth;
 	
 	
@@ -68,6 +68,7 @@ public class User {
 		this.dateofbirth = dateofbirth;
 	}
 	@Email
+	@NotBlank(message="Pls Enter Email")
 	private String email;
 	
 	
