@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.form.model.User;
@@ -41,5 +42,14 @@ public class Usercontroller {
 	public String viewtable(Model model) {
 		model.addAttribute("user",ifrepo.findAll());
 		return "view";
+	}
+	
+	@GetMapping("/remove/{id}")
+	public String remove(Model model,@PathVariable("id") Integer id) {
+		
+		ifrepo.delete(ifrepo.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id)));
+		model.addAttribute("user", ifrepo.findAll());
+		return"view";
 	}
 }

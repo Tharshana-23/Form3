@@ -23,6 +23,7 @@
       <th scope="col">Email</th>
       <th scope="col">Gender</th>
       <th scope="col">DOB</th>
+      <th scope="col">Remove</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +37,7 @@
       <td th:text="${user.email}"></td>
       <td th:text="${user.gender}"></td>
       <td th:text="${user.dateofbirth}"></td>
+       <td><a th:href="@{/remove/{id} (id=${user.id})}"> <button class="btn btn-danger">remove</button></a></td>
     </tr>
     
   </tbody>
