@@ -37,5 +37,9 @@ public class Usercontroller {
 			return "form";
 	}
 	
-	
+	@GetMapping("/view")
+	public String viewtable(Model model) {
+		model.addAttribute("user",ifrepo.findAll());
+		return "view";
+	}
 }
