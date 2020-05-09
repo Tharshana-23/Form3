@@ -49,7 +49,26 @@ public class Usercontroller {
 		
 		ifrepo.delete(ifrepo.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id)));
-		model.addAttribute("user", ifrepo.findAll());
-		return"view";
+		//model.addAttribute("user", ifrepo.findAll());
+		return"redirect:/view";
 	}
+	
+	@GetMapping("/edit/{id}")
+	public String redirectUpdatePage(@PathVariable("id") Integer id,Model model) {
+		
+		model.addAttribute("user", ifrepo.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id)));
+		return"edit";}
+	
+	
+	@PostMapping("/update{id}")
+	public String redirecttoview(@Valid User user, BindingResult result) {
+		if (result.hasErrors()) {
+			return "edit";}
+		
+		ifrepo.save(user);
+				
+	return "redirect:/view";
+	}
+	
 }
