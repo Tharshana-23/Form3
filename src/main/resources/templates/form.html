@@ -73,6 +73,18 @@
 							th:errors="*{mobileno}"></div>
               </div>
             </div>
+             <div class="form-row">
+            <div class="col-md-4 mb-3">
+            <label for="username">User Name</label>
+                <input type="text" class="form-control" th:field="*{username}" id="username" >
+            </div>
+            
+            <div class="col-md-4 mb-3">
+            <label for="password">Password</label>
+                <input type="password" class="form-control" th:field="*{password}" id="password" >
+            </div>
+            </div> 
+            
               <div class="col-md-3 mb-3">
                 <label for="gender">Gender</label>
                 <select class="custom-select" id="gender" th:field="*{gender}"  >
@@ -94,13 +106,14 @@
               </div>
             
             
-            <button class="btn btn-primary" type="submit">Submit </button>
+            <button class="btn btn-primary" type="submit">New User </button>
             
             
-</form>
+</form> 
 
 
             <a th:href="@{/view}"><button class="btn btn-info">view</button></a>
+            <a th:href="@{/login}"><button class="btn btn-info">Login</button></a>
 
 <div th:if="${message}"> 
 <div class="alert alert-danger" role="alert">

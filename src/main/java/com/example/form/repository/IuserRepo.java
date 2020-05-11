@@ -13,6 +13,8 @@ import com.example.form.model.User;
 @Repository
 public interface IuserRepo extends JpaRepository<User,Integer>{
 
- 
+	
+	
+	
 
 }

@@ -35,7 +35,33 @@ public class User {
 	@NotBlank(message="Pls Enter DOB")
 	private String dateofbirth;
 	
+	@Size(min = 4)
+	@NotBlank(message="Pls Enter Password")
+	private String password;
 	
+	@Size(min = 4, message="Your user name must have at least 4 characters")
+	@NotBlank(message="Pls Enter Username")
+	private String username;
+	
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public String getSurname() {
 		return surname;
 	}
@@ -67,7 +93,7 @@ public class User {
 	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
-	@Email
+	@Email(message="Pls Enter valid Email")
 	@NotBlank(message="Pls Enter Email")
 	private String email;
 	

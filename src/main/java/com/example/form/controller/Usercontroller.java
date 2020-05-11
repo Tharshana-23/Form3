@@ -1,5 +1,7 @@
 package com.example.form.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +65,24 @@ public class Usercontroller {
 	
 	@PostMapping("/update{id}")
 	public String redirecttoview(@Valid User user, BindingResult result) {
+		System.out.println("test");
 		if (result.hasErrors()) {
-			return "edit";}
+			return "edit";
+			}
+		 User u=ifrepo.findById(user.getId())
+				 .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + user.getId()));
+		 
+			u.setDateofbirth(user.getDateofbirth());
+			u.setEmail(user.getEmail());
+			u.setGender(user.getGender());
+			
+			u.setMobileno(user.getMobileno());
+			u.setName(user.getName());
+			u.setPassword(user.getPassword());
+			u.setSurname(user.getSurname());
+			u.setUsername(user.getUsername());
 		
-		ifrepo.save(user);
+		ifrepo.save(u);
 				
 	return "redirect:/view";
 	}
